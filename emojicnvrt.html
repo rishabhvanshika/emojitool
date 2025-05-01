@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Emoji Translator</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .output-container {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            min-height: 50px;
+        }
+
+        #emojiOutput {
+            font-size: 24px;
+            word-wrap: break-word;
+        }
+
+        #copyBtn {
+            background-color: #2196F3;
+        }
+
+        #copyBtn:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text to Emoji Translator</h1>
+        <textarea id="userInput" placeholder="Type something like 'I am happy and hungry'..."></textarea>
+        <button id="translateBtn">Translate to Emoji</button>
+        <div class="output-container">
+            <p id="emojiOutput">Emojis will appear here...</p>
+            <button id="copyBtn">Copy Emojis</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript Implementation
+        (function() {
+            /**
+             * Emoji Translator Tool
+             * Converts user input text into emojis based on keyword matching.
+             */
+
+            // Emoji mapping dictionary (key: word, value: emoji)
+            const emojiMap = {
+                happy: "😊",
+                sad: "😢",
+                angry: "😠",
+                love: "❤️",
+                hungry: "🍔",
+                laugh: "😂",
+                cool: "😎",
+                hello: "👋",
+                bye: "👋",
+                sleep: "😴",
+                dog: "🐕",
+                cat: "🐈",
+                fire: "🔥",
+                // Add more mappings as needed
+            };
+
+            // DOM Elements
+            const userInput = document.getElementById("userInput");
+            const translateBtn = document.getElementById("translateBtn");
+            const emojiOutput = document.getElementById("emojiOutput");
+            const copyBtn = document.getElementById("copyBtn");
+
+            /**
+             * Translates text to emojis by replacing known keywords.
+             * Handles edge cases: 
+             * - Unknown words (keeps original text)
+             * - Case-insensitive matching
+             * - Punctuation (ignores attached symbols like 'happy!')
+             */
+            function translateToEmoji(text) {
+                return text
+                    .split(" ")
+                    .map(word => {
+                        // Remove punctuation and convert to lowercase for matching
+                        const cleanWord = word.replace(/[^\w\s]|_/g, "").toLowerCase();
+                        return emojiMap[cleanWord] || word;
+                    })
+                    .join(" ");
+            }
+
+            // Event Listeners
+            translateBtn.addEventListener("click", () => {
+                const text = userInput.value.trim();
+                if (!text) {
+                    emojiOutput.textContent = "Please enter some text!";
+                    return;
+                }
+                emojiOutput.textContent = translateToEmoji(text);
+            });
+
+            copyBtn.addEventListener("click", () => {
+                navigator.clipboard.writeText(emojiOutput.textContent)
+                    .then(() => alert("Emojis copied to clipboard!"))
+                    .catch(err => console.error("Failed to copy:", err));
+            });
+
+            // Optional: Auto-translate as user types
+            userInput.addEventListener("input", () => {
+                if (userInput.value.trim()) {
+                    emojiOutput.textContent = translateToEmoji(userInput.value);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
