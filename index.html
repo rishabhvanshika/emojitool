@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Toolbox - Fun & Useful Emoji Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== Global Styles ===== */
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --accent: #FFE66D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ===== Tool Cards Grid ===== */
+        .tools-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            padding: 1.5rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+
+        .tool-content {
+            padding: 1.5rem;
+        }
+
+        .tool-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .tool-desc {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff5252;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== Responsive Adjustments ===== */
+        @media (max-width: 768px) {
+            .tools-container {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">📚 Emoji Toolbox</div>
+        <p class="tagline">Your one-stop destination for fun and useful emoji tools! Translate text, find the perfect emoji, and more.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="tools-container">
+            <!-- Tool Card 1: Emoji Translator -->
+            <div class="tool-card">
+                <div class="tool-icon">🔤➡️😊</div>
+                <div class="tool-content">
+                    <h3 class="tool-title">Emoji Translator</h3>
+                    <p class="tool-desc">Convert your text into emojis automatically. Try typing "I love pizza"!</p>
+                    <a href="/emoji-translator" class="btn">Try Now</a>
+                </div>
+            </div>
+
+            <!-- Tool Card 2: Emoji Search -->
+            <div class="tool-card">
+                <div class="tool-icon">🔍😀</div>
+                <div class="tool-content">
+                    <h3 class="tool-title">Emoji Search</h3>
+                    <p class="tool-desc">Find the perfect emoji for any situation with our powerful search.</p>
+                    <a href="/emoji-search" class="btn">Search Emojis</a>
+                </div>
+            </div>
+
+            <!-- Tool Card 3: Emoji Combiner -->
+            <div class="tool-card">
+                <div class="tool-icon">✨➕✨</div>
+                <div class="tool-content">
+                    <h3 class="tool-title">Emoji Combiner</h3>
+                    <p class="tool-desc">Mix and match emojis to create unique combinations.</p>
+                    <a href="/emoji-combiner" class="btn">Combine Now</a>
+                </div>
+            </div>
+
+            <!-- Tool Card 4: Emoji Art Generator -->
+            <div class="tool-card">
+                <div class="tool-icon">🎨😍</div>
+                <div class="tool-content">
+                    <h3 class="tool-title">Emoji Art</h3>
+                    <p class="tool-desc">Turn your photos into amazing emoji art creations.</p>
+                    <a href="/emoji-art" class="btn">Create Art</a>
+                </div>
+            </div>
+
+            <!-- Tool Card 5: Emoji Keyboard -->
+            <div class="tool-card">
+    <a href="/emoji-keyboard" class="card-link">
+        <div class="tool-icon">⌨️😎</div>
+        <div class="tool-content">
+            <h3 class="tool-title">Emoji Keyboard</h3>
+            <p class="tool-desc">Copy & paste emojis instantly with our virtual keyboard.</p>
+            <span class="btn">Use Keyboard</span>
+        </div>
+    </a>
+            </div>
+            <!-- Tool Card 6: Emoji Quiz -->
+            <div class="tool-card">
+                <div class="tool-icon">❓🤔</div>
+                <div class="tool-content">
+                    <h3 class="tool-title">Emoji Quiz</h3>
+                    <p class="tool-desc">Test your emoji knowledge with our fun quiz game!</p>
+                    <a href="/emoji-quiz" class="btn">Play Quiz</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with ❤️ by Emoji Lovers</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2023 Emoji Toolbox. All rights reserved.</p>
+    </footer>
+</body>
+</html>
